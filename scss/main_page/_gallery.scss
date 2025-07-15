@@ -1,0 +1,30 @@
+.gallery{
+  height: 100vh;
+  display: flex; align-items: flex-end;
+  position: relative;
+  padding: 2rem 0;
+  z-index: 5;
+  .gallery_splide{
+    position: relative;
+    margin-bottom: 50px; 
+    overflow: visible !important;
+    .gallery_wrap{
+      overflow: visible !important;
+      .gallery_list{
+        overflow: visible !important;
+        .gallery_slide{
+          width: max-content !important;
+          border-radius: 10px;
+          overflow: hidden;
+          position: relative;
+          img {
+            width: 300px;
+            border-radius: 10px;
+            user-select: none;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+  }
+}

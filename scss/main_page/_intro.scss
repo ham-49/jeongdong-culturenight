@@ -1,0 +1,108 @@
+/* Canvas SCSS */
+body, html {
+  margin: 0; padding: 0;
+  background: #4B3BFF;
+}
+#bgCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+main{
+  position: relative;
+}
+
+.intro {
+  color: #fff;
+  position: relative; 
+  .top_slide_wrap {
+    margin: 10px 0;
+    height: 20px;
+    color: #000;
+    .intro_top_wrap {
+      .intro_top_list {
+        .intro_top_slide {
+          width: max-content !important;
+        }
+      }
+    }
+  }
+
+  .text_wrap {
+    width: 100%;
+    min-height: max-content;
+    position: relative;
+    .icons {
+      background: $dark_blue;
+      padding: 10px 20px 5px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+    .top_text_wrap {
+      position: relative;
+      .top_text_title {
+        background: $dark_blue;
+        padding: 0 20px;
+        p {
+          font-size: 20px;
+          font-weight: 700;
+          font-family: $primary-en;
+          line-height: 1.5;
+        }
+        span {
+          font-size: 20px;
+          font-weight: 700;
+          font-family: $primary-en;
+          line-height: 1.5;
+        }
+      }
+      
+      .top_text_day {
+        display: block;
+        text-align: right;
+        background: $dark_blue;
+        padding: 30px 120px;
+        position: relative;
+        z-index: 2; // 캔버스보다 위
+        mix-blend-mode: darken;
+        color: #Fff;
+        .day {
+          font-size: 70px;
+          font-family: $primary-en;
+          font-weight: 100;
+        }
+
+        .day_num {
+          font-size: 150px;
+          font-weight: bold;
+        }
+      }
+    }
+    .bottom_text_wrap{
+      display: block;
+      text-align: left;
+      background: $dark_blue;
+      position: relative;
+      z-index: 2; // 캔버스보다 위
+      mix-blend-mode: darken;
+      color: #Fff;
+      padding: 20px 120px;
+      p{
+        font-size: 160px;
+        font-weight: bold;
+      }
+    }
+  }
+  .bottom_slide_wrap {
+    height: 40px;
+    background: #000;
+    border-top: 1px solid #fff;
+    padding: 10px 0;
+  }
+}
