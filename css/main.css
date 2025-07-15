@@ -679,11 +679,11 @@ main {
   inset: 0;
   background: -webkit-gradient(linear, right top, left top, from(#453369), to(#FBA6BA));
   background: linear-gradient(-90deg, #453369, #FBA6BA);
-  mask-image: url("../../image/asideTxt.png");
+  mask-image: url("/jeongdong-culturenight/image/asideTxt.png");
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: contain;
-  -webkit-mask-image: url("../../image/asideTxt.png");
+  -webkit-mask-image: url("/jeongdong-culturenight/image/asideTxt.png");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   -webkit-mask-size: contain;
