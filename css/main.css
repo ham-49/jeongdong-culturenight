@@ -689,8 +689,8 @@ main {
   -webkit-mask-size: contain;
 }
 .promotion .promotion_title_wrap .promotion_aside .aside-wrap .txt {
-  width: 95px;
-  height: 95px;
+  width: 85px;
+  height: 85px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1237,6 +1237,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   gap: 20px;
+  cursor: pointer;
 }
 .news .news_content_wrap .notice_content_wrap .news_content .content_list .list_left {
   display: -webkit-box;
@@ -1935,6 +1936,9 @@ main {
   padding: 50px 50px 50px 10px;
   border-right: 1px solid #555;
   border-bottom: 1px solid #555;
+}
+.program .program-content .yasa-bottom-content .yasa-items .yasa-item:nth-child(5), .program .program-content .yasa-bottom-content .yasa-items .yasa-item:nth-child(6) {
+  border-bottom: none;
 }
 
 /* yaseol */
