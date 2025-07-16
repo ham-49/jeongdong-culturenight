@@ -133,7 +133,7 @@ fetch('/jeongdong-culturenight/fetch/aside.html')
   window.addEventListener('scroll', () => {
     let programRect = programSection.getBoundingClientRect();
     let archiveRect = archiveSection.getBoundingClientRect();
-    let isProVisible = programRect.top < window.innerHeight &&  programRect.bottom > 20;
+    let isProVisible = programRect.top < window.innerHeight &&  programRect.bottom > -20;
     let isNextAtBottom = archiveRect.top <= window.innerHeight;
     // pro가 보이면 invert 추가
     if (isProVisible) {
