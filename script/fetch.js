@@ -131,12 +131,11 @@ fetch('/jeongdong-culturenight/fetch/aside.html')
 
   window.addEventListener('scroll', () => {
     let programRect = programSection.getBoundingClientRect();
-    let isVisible = programRect.top < window.innerHeight && programRect.bottom > 0;
-    let isNearBottom = programRect.bottom <= window.innerHeight - 100;
-    if (isVisible && !isNearBottom) {
-      asideImage.classList.add('invert');
-    } else {
+    let asideRect = asideImage.getBoundingClientRect();
+    if (asideRect.top > programRect.bottom) {
       asideImage.classList.remove('invert');
+    } else {
+      asideImage.classList.add('invert');
     }
   });
 });
