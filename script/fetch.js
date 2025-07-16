@@ -126,17 +126,17 @@ fetch('/jeongdong-culturenight/fetch/aside.html')
     }
   });
   /* 사이드 이미지 색상 변경 */
-let programSection = document.querySelector('.program');
-let asideImage = document.querySelector('aside img');
+  let programSection = document.querySelector('.program');
+  let asideImage = document.querySelector('aside img');
 
-window.addEventListener('scroll', () => {
-  let programRect = programSection.getBoundingClientRect();
-  let isVisible = programRect.top < window.innerHeight && programRect.bottom > -20;
-  let isNearBottom = programRect.bottom <= window.innerHeight - 50;
-
-  if (isVisible && !isNearBottom) {
-    asideImage.classList.add('invert');
-  } else {
-    asideImage.classList.remove('invert');
-  }
+  window.addEventListener('scroll', () => {
+    let programRect = programSection.getBoundingClientRect();
+    let isVisible = programRect.top < window.innerHeight && programRect.bottom > 0;
+    let isNearBottom = programRect.bottom <= window.innerHeight - 50;
+    if (isVisible && !isNearBottom) {
+      asideImage.classList.add('invert');
+    } else {
+      asideImage.classList.remove('invert');
+    }
+  });
 });
