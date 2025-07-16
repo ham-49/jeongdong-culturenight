@@ -1056,6 +1056,9 @@ body {
   border-right: 1px solid #555;
   border-bottom: 1px solid #555;
 }
+.program .program-content .yasa-bottom-content .yasa-items .yasa-item:nth-child(5), .program .program-content .yasa-bottom-content .yasa-items .yasa-item:nth-child(6) {
+  border-bottom: none;
+}
 
 /* yaseol */
 .program .program-content {
