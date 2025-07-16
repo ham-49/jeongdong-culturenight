@@ -125,7 +125,7 @@ fetch('/jeongdong-culturenight/fetch/aside.html')
       aside.classList.remove('visible');
     }
   });
-  /* 사이드 이지 색상 변경 */
+  /* 사이드 이미지 색상 변경 */
   let programSection = document.querySelector('.program');
   let archiveSection = document.querySelector('.archive');
   let asideImage = document.querySelector('aside img');
@@ -133,7 +133,7 @@ fetch('/jeongdong-culturenight/fetch/aside.html')
   window.addEventListener('scroll', () => {
     let programRect = programSection.getBoundingClientRect();
     let archiveRect = archiveSection.getBoundingClientRect();
-    let isProVisible = programRect.top < window.innerHeight &&  programRect.bottom > 0;
+    let isProVisible = programRect.top < window.innerHeight &&  programRect.bottom > 20;
     let isNextAtBottom = archiveRect.top <= window.innerHeight;
     // pro가 보이면 invert 추가
     if (isProVisible) {
