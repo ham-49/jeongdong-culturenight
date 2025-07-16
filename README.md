@@ -44,7 +44,7 @@
   : 인트로 섹션 이후 자연스럽게 등장하도록 구현.
   : 메뉴 열림/닫힘 기능은 toggle 버튼을 통해 제어하며, 두 개의 상태(닫힌 상태의 dot 버튼과 열린 상태의 close 버튼)를 전환하는 방식으로 UX 흐름을 직관적으로 구성.
   
-  이미지 영역
+  <img src="https://github.com/ham-49/jeongdong-culturenight/blob/main/readme/인트로,%20헤더.gif?raw=true" alt="헤더, 인트로" width="1000">
 
 ### 🛠 2. 인트로 섹션
 - **슬라이드 전환 및 스크롤 이벤트 연동**  
@@ -53,7 +53,7 @@
 - **부유하는 배경 요소 구현**  
   : Canvas를 활용해 다양한 배경 요소(예: 부유하는 이미지, 입자 등)를 랜덤 위치 및 속도로 생성하였으며, 이를 자연스럽게 이동시켜 축제 분위기를 살리는 동적인 배경 연출을 구현.
  
- 이미지 영역 
+ <img src="https://github.com/ham-49/jeongdong-culturenight/blob/main/readme/인트로,%20헤더.gif?raw=true" alt="헤더, 인트로" width="1000">
 
 ### 🛠 3. 프로그램 섹션
 - **스크롤 이벤트**  
@@ -61,7 +61,7 @@
   : 배경에는 canvas를 활용해 동적인 분위기를 조성했으며, 반원형 레이아웃의 Swiper 슬라이드 등으로 콘텐츠가 시각적으로 돋보이도록 구성.
   : 스크립트와 GSAP(GreenSock Animation Platform) 를 활용하여 스크롤 위치에 따라 요소가 등장하거나 전환되는 모션 기반 인터랙션 구현.
   
-이미지 영역
+<img src="https://github.com/ham-49/jeongdong-culturenight/blob/main/readme/프로그램.gif?raw=true" alt="프로그램" width="1000">
 
 ### 🛠 4. 사이드 버튼
 - **스크롤 위치 기반 노출**  
@@ -70,7 +70,7 @@
 - **배경 색상에 따른 텍스트 색상 자동 전환**  
   : 배경의 명도에 따라 텍스트 색상이 자동으로 변경되어 항상 가독성을 유지할 수 있도록 구현. (어두운 영역 : 흰색 텍스트, 밝은 영역 : 검정 텍스트)
   
-이미지 영역
+<img src="https://github.com/ham-49/jeongdong-culturenight/blob/main/readme/사이드.gif?raw=true" alt="사이드" width="1000">
 
 <br>
 
