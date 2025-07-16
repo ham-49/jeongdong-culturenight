@@ -2068,6 +2068,7 @@ body {
 }
 .about-news .about-news-content .about-news-table .data-table tbody tr {
   background: #F9F9F9;
+  cursor: pointer;
 }
 .about-news .about-news-content .about-news-table .data-table tbody tr td:nth-child(1), .about-news .about-news-content .about-news-table .data-table tbody tr td:nth-child(3), .about-news .about-news-content .about-news-table .data-table tbody tr td:nth-child(4) {
   text-align: center;
