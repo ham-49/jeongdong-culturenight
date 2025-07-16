@@ -4,7 +4,7 @@ new Splide('#sliderIntroTop', {
   autoWidth: true,
   autoplay: true,
   interval: 2000,
-  speed: 3600,
+  speed: 4000,
   easing: 'linear',
   pauseOnHover: false,
   arrows: false,
@@ -12,6 +12,7 @@ new Splide('#sliderIntroTop', {
   drag: false,
   gap: '30px',
 }).mount();
+
 new Splide('#sliderIntroBottom', {
   type: 'loop',
   autoWidth: true,
@@ -33,8 +34,8 @@ new Splide('#sliderSupport', {
   autoWidth: true,
   perMove: 1,
   autoplay: true,
-  interval: 1000,
-  speed: 3000,
+  interval: 1500,
+  speed: 4000,
   easing: 'linear',
   pauseOnHover: false,
   arrows: false,
