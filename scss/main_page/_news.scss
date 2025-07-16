@@ -54,6 +54,7 @@
           border-bottom: 1px solid $dark_black;
           padding: 20px 5px;
           display: flex; align-items: center; gap: 20px;
+          cursor: pointer;
           .list_left {
             display: flex; flex-direction: column; align-items: center;
             .list_num {
