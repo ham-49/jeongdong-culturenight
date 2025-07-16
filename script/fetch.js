@@ -126,22 +126,17 @@ fetch('/jeongdong-culturenight/fetch/aside.html')
     }
   });
   /* 사이드 이미지 색상 변경 */
-  let programSection = document.querySelector('.program');
-  let archiveSection = document.querySelector('.archive');
-  let asideImage = document.querySelector('aside img');
+let programSection = document.querySelector('.program');
+let asideImage = document.querySelector('aside img');
 
-  window.addEventListener('scroll', () => {
-    let programRect = programSection.getBoundingClientRect();
-    let archiveRect = archiveSection.getBoundingClientRect();
-    let isProVisible = programRect.top < window.innerHeight &&  programRect.bottom > -20;
-    let isNextAtBottom = archiveRect.top <= window.innerHeight;
-    // pro가 보이면 invert 추가
-    if (isProVisible) {
-      asideImage.classList.add('invert');
-    }
-    // next의 top이 브라우저 바닥에 닿으면 invert 제거
-    if (isNextAtBottom) {
-      asideImage.classList.remove('invert');
-    }
-  });
+window.addEventListener('scroll', () => {
+  let programRect = programSection.getBoundingClientRect();
+  let isVisible = programRect.top < window.innerHeight && programRect.bottom > -20;
+  let isNearBottom = programRect.bottom <= window.innerHeight - 50;
+
+  if (isVisible && !isNearBottom) {
+    asideImage.classList.add('invert');
+  } else {
+    asideImage.classList.remove('invert');
+  }
 });
