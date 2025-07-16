@@ -4,7 +4,7 @@ new Splide('#sliderIntroTop', {
   autoWidth: true,
   autoplay: true,
   interval: 2000,
-  speed: 4000,
+  speed: 3800,
   easing: 'linear',
   pauseOnHover: false,
   arrows: false,
