@@ -9,3 +9,6 @@ gsap.from('.news_title_wrap p', {
     markers: true 
   }
 });
+
+
+console.log(gsap, ScrollTrigger);
