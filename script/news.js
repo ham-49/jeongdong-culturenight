@@ -3,7 +3,7 @@ gsap.from('.news_title_wrap p', {
   scrollTrigger: {
     trigger: '.news',
     start: 'top 90%',
-    toggleActions: 'play none none reverse'
+    toggleActions: 'play none none reverse',
+    markers: true 
   }
-  markers: true 
 });
