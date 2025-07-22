@@ -1,155 +1,148 @@
 /* header */
 fetch('/jeongdong-culturenight/fetch/header.html')
-.then(response => response.text())
+.then(res => res.text())
 .then(data => {
   document.querySelector('.header-include').innerHTML = data;
-  /* header-script */
+
   let langToggle = document.querySelector('.language_toggle');
   let langOptionsContainer = document.querySelector('.language_options');
   let languages = ['KOR', 'ENG'];
 
-  /* language 랜더링 */
+  // 언어 옵션 버튼 생성
   function renderOptions(currentLang) {
-  // 옵션 영역을 비우고 현재 lang이 아닌 언어만 보여주기
-  langOptionsContainer.innerHTML = '';
-  languages.forEach(lang => {
-    if (lang !== currentLang) {
-    let btn = document.createElement('button');
-      btn.classList.add('language_option');
-      btn.dataset.lang = lang;
-      btn.textContent = lang;
-      langOptionsContainer.appendChild(btn);
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        // 버튼 텍스트 교체
-        langToggle.textContent = lang;
-        // 옵션 닫기
-        langOptionsContainer.classList.remove('active');
-        // 옵션 목록 재렌더링 (현재 선택된 언어 제외)
-        renderOptions(lang);
-      });
-    }
-  });
+    langOptionsContainer.innerHTML = '';
+    languages.forEach(lang => {
+      if (lang !== currentLang) {
+        let btn = document.createElement('button');
+        btn.classList.add('language_option');
+        btn.textContent = lang;
+        btn.dataset.lang = lang;
+        btn.onclick = e => {
+          e.preventDefault();
+          langToggle.textContent = lang;           // 선택한 언어로 토글 텍스트 변경
+          langOptionsContainer.classList.remove('active');  
+          renderOptions(lang);                      // 옵션 다시 렌더링
+        };
+        langOptionsContainer.appendChild(btn);
+      }
+    });
   }
-  langToggle.addEventListener('click', (e) => {
+
+  // 언어 토글 버튼 클릭 이벤트 (옵션 열고 닫기)
+  langToggle.onclick = e => {
     e.preventDefault();
     langOptionsContainer.classList.toggle('active');
-  });
+  };
 
-  // 초기 렌더링
   renderOptions(langToggle.textContent);
 
-  /* 헤더 버튼  */
-  let dotWrap = document.querySelector('.dot_Wrap');
+  let dotWrap = document.querySelector('.dot_Wrap'); 
   let closeWrap = document.querySelector('.close_Wrap');
-  let navWrap = document.querySelector('.nav');
+  let navWrap = document.querySelector('.nav');       
+
+  // 모바일 여부 판단 함수 (화면 너비 768px 이하)
   function isMobile() {
-    return window.innerWidth <= 768; // 너비 기준은 필요에 따라 768px 이하로 조정
-  }
-  if (isMobile()) {
-    console.log("모바일")
-    navWrap.classList.add('hidden');
-    /* 확인 */
-    closeWrap.classList.remove('show');
-    dotWrap.classList.add('show');
-    dotWrap.style.display = 'flex';
-    closeWrap.style.display = 'none';
-  }
-  else{
-    dotWrap.classList.remove('show');
-    closeWrap.classList.add('show');
+    return window.innerWidth <= 768;
   }
 
-  // closeWrap 클릭 → 닷 보여주기
-  closeWrap.addEventListener('click', () => {
+  // 네비게이션 초기/변경 상태 설정 함수
+  function setNavState() {
+    if (isMobile()) {
+      navWrap.classList.add('hidden');     
+      closeWrap.classList.remove('show');  
+      closeWrap.style.display = 'none';
+      dotWrap.classList.add('show');      
+      dotWrap.style.display = 'flex';
+    } else {
+      navWrap.classList.remove('hidden');  
+      closeWrap.classList.add('show');     
+      closeWrap.style.display = 'block';
+      dotWrap.classList.remove('show');  
+      dotWrap.style.display = 'none';
+    }
+  }
+
+  setNavState(); 
+
+  // 닫기 아이콘 클릭 시 메뉴 닫고 열기 아이콘 보이기
+  closeWrap.onclick = () => {
     closeWrap.classList.add('hidden');
     closeWrap.classList.remove('show');
     navWrap.classList.add('hidden');
+
     setTimeout(() => {
       closeWrap.style.display = 'none';
       dotWrap.style.display = 'flex';
-      requestAnimationFrame(() => {
-        dotWrap.classList.add('show');
-        dotWrap.classList.remove('hidden');
-      });
+      dotWrap.classList.add('show');
+      dotWrap.classList.remove('hidden');
     }, 300);
-  });
+  };
 
-  // dotWrap 클릭 시 네브 보이고 열리게
-  dotWrap.addEventListener('click', () => {
+  // 열기 아이콘 클릭 시 메뉴 보이고 닫기 아이콘 보이기
+  dotWrap.onclick = () => {
     dotWrap.classList.add('hidden');
     dotWrap.classList.remove('show');
     navWrap.classList.remove('hidden');
+
     setTimeout(() => {
       dotWrap.style.display = 'none';
       closeWrap.style.display = 'block';
-      requestAnimationFrame(() => {
-        closeWrap.classList.add('show');
-        closeWrap.classList.remove('hidden');
-      });
+      closeWrap.classList.add('show');
+      closeWrap.classList.remove('hidden');
     }, 300);
-  });
+  };
 
-  /* 헤더 보이기 */
-  let header = document.querySelector('.header');
-  let gallery = document.querySelector('.gallery');
-  
+  let header = document.querySelector('.header');   
+  let gallery = document.querySelector('.gallery'); 
+
+  // 스크롤 시 헤더 보이기 (모바일은 항상 보임)
   window.addEventListener('scroll', () => {
     if (isMobile()) {
       header.style.display = 'block';
-      return; // 모바일일 경우 아래 조건 무시하고 항상 보이게
+      return;
     }
-  
     let galleryTop = gallery.getBoundingClientRect().top;
-    if (galleryTop <= 100) {
-      header.style.display = 'block';
-    } else {
-      header.style.display = 'none';
-    }
+    header.style.display = (galleryTop <= 100) ? 'block' : 'none';
   });
 });
 
 /* footer */
 fetch('/jeongdong-culturenight/fetch/footer.html')
-.then(response => response.text())
+.then(res => res.text())
 .then(data => {
   document.querySelector('.footer-include').innerHTML = data;
 });
 
 /* aside */
 fetch('/jeongdong-culturenight/fetch/aside.html')
-.then(response => response.text())
+.then(res => res.text())
 .then(data => {
   document.querySelector('.aside-include').innerHTML = data;
-  /* aisde */
-  /* 사이트 숨기기 */
-  let aside = document.querySelector('aside');
-  let program = document.querySelector('.program');
-  let footer = document.querySelector('.footer');
 
+  let aside = document.querySelector('aside');          
+  let program = document.querySelector('.program');     
+  let footer = document.querySelector('.footer');      
+  let asideImage = document.querySelector('aside img');
+
+  // 스크롤 시 aside 노출 및 이미지 색상 반전 처리
   window.addEventListener('scroll', () => {
     let programRect = program.getBoundingClientRect();
     let footerRect = footer.getBoundingClientRect();
     let triggerPoint = window.innerHeight * 0.9;
-    let programTrigger = programRect.top <= triggerPoint;
-    let footerTopAtBottom = footerRect.top <= window.innerHeight;
-    // footer 상단이 브라우저 하단에 닿으면 강제로 visible 제거
-    if (footerTopAtBottom) {
-      aside.classList.remove('visible');
-    } else if (programTrigger) {
-      aside.classList.add('visible');
+
+    if (footerRect.top <= window.innerHeight) {
+      aside.classList.remove('visible'); 
+    } else if (programRect.top <= triggerPoint) {
+      aside.classList.add('visible');    
     } else {
       aside.classList.remove('visible');
     }
-  });
-  /* 사이드 이미지 색상 변경 */
-  let programSection = document.querySelector('.program');
-  let asideImage = document.querySelector('aside img');
 
-  window.addEventListener('scroll', () => {
-    let programRect = programSection.getBoundingClientRect();
-    let asideRect = asideImage.getBoundingClientRect();
-    if (asideRect.top > programRect.bottom) {
+    // aside 사이드 색상 변경
+    let programBottom = programRect.bottom;
+    let asideImageTop = asideImage.getBoundingClientRect().top;
+
+    if (asideImageTop > programBottom) {
       asideImage.classList.remove('invert');
     } else {
       asideImage.classList.add('invert');
@@ -157,7 +150,28 @@ fetch('/jeongdong-culturenight/fetch/aside.html')
   });
 });
 
-/* 리사이징 대응 */
+/* resize 대응 */
+// 화면 크기 변경 시 네비게이션 상태를 재설정
 window.addEventListener('resize', () => {
-  location.reload(); 
+  const navWrap = document.querySelector('.nav');
+  const closeWrap = document.querySelector('.close_Wrap');
+  const dotWrap = document.querySelector('.dot_Wrap');
+
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+
+  if (isMobile()) {
+    navWrap.classList.add('hidden');
+    closeWrap.classList.remove('show');
+    closeWrap.style.display = 'none';
+    dotWrap.classList.add('show');
+    dotWrap.style.display = 'flex';
+  } else {
+    navWrap.classList.remove('hidden');
+    closeWrap.classList.add('show');
+    closeWrap.style.display = 'block';
+    dotWrap.classList.remove('show');
+    dotWrap.style.display = 'none';
+  }
 });
