@@ -1820,7 +1820,7 @@ main {
   }
   .promotion .promotion_title_wrap .title {
     font-size: 30px;
-    width: 70%;
+    width: 100%;
     line-height: 1.3;
   }
   .promotion .promotion_title_wrap .start_text {
