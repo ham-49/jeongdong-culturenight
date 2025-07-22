@@ -1,0 +1,25 @@
+/* base */
+@import 'common/_variables';
+@import 'common/_mixin';
+@import 'common/_font';
+@import 'common/_reset';
+
+/* main_page_section */
+@import 'main_page/_header';
+@import 'main_page/_aside';
+@import 'main_page/_footer';
+
+/* sub_page */
+@import 'sub_page/_program';
+@import 'sub_page/_schedule';
+@import 'sub_page/_pre-register';
+@import 'sub_page/_opening_guide';
+@import 'sub_page/_about';
+@import 'sub_page/_location';
+@import 'sub_page/_sub_responsive_tablet';
+@import 'sub_page/_sub_responsive_mobile';
+
+/* conmmon */
+.header{
+  display: block;
+}

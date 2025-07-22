@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정동야행-클론코딩</title>
+  <!-- ########## CSS Library ########## -->
+  <!-- splide -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/css/splide.min.css">
+  <!-- ########## custom ########## -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- slide02 transform 으로 위로 올리기 -->
+  <style>
+    body{
+      overflow-x: hidden;
+    }
+    .slide02 {
+      position: relative; 
+      transform: translateY(-65vh) rotate(20deg);
+      z-index: 10;
+      transition: transform 0.5s ease;
+    }
+    @media screen and (max-width: 1024px) {
+      .slide02 {
+        transform: translateY(-95vh) rotate(20deg);
+      }
+    }
+    @media screen and (max-width: 768px) {
+      .slide02 {
+        transform: translateY(0) rotate(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bgCanvas"></canvas>
+  <!-- ########## header ########## -->
+  <div class="header-include"></div>
+
+  <!-- ########## main ########## -->
+  <main>
+    <!-- aside -->
+    <div class="aside-include"></div>
+    <!-- section : intro -->
+    <section class="intro">
+      <div id="sliderIntroTop" class="splide top_slide_wrap">
+        <div class="splide__track intro_top_wrap">
+          <ul class="splide__list intro_top_list">
+            <li class="splide__slide intro_top_slide">
+              <span>Start 2025.05.23</span>
+            </li>
+            <li class="splide__slide intro_top_slide">
+              <span>The light of Jeongdong, embroidering the future</span>
+            </li>
+            <!-- copy -->
+            <li class="splide__slide intro_top_slide">
+              <span>Start 2025.05.23</span>
+            </li>
+            <li class="splide__slide intro_top_slide">
+              <span>The light of Jeongdong, embroidering the future</span>
+            </li>
+            <li class="splide__slide intro_top_slide">
+              <span>Start 2025.05.23</span>
+            </li>
+            <li class="splide__slide intro_top_slide">
+              <span>The light of Jeongdong, embroidering the future</span>
+            </li>
+            <li class="splide__slide intro_top_slide">
+              <span>Start 2025.05.23</span>
+            </li>
+            <li class="splide__slide intro_top_slide">
+              <span>The light of Jeongdong, embroidering the future</span>
+            </li>
+            <li class="splide__slide intro_top_slide">
+              <span>Start 2025.05.23</span>
+            </li>
+            <li class="splide__slide intro_top_slide">
+              <span>The light of Jeongdong, embroidering the future</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="text_wrap">
+        <div class="icons">
+          <i class="fa-solid fa-globe"></i>
+          <i class="fa-solid fa-euro-sign"></i>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <div class="top_text_wrap">
+          <div class="top_text_title">
+            <p>JEONGDONG</p>
+            <span>CULTURE</span>
+            <span>NIGHT</span>
+          </div>
+          <div class="top_text_day">
+            <p class="day">D-DAY</p>
+            <p class="day_num">-46</p>
+          </div>
+        </div>
+        <div class="bottom_text_wrap">
+          <p>정통의 빛,</p>
+          <p>미래를 수놓다</p>
+        </div>
+      </div>
+      <div id="sliderIntroBottom" class="splide bottom_slide_wrap">
+        <div class="splide__track intro_bottom_wrap">
+          <ul class="splide__list intro_bottom_list">
+            <li class="splide__slide intro_bottom_slide">
+              <span>Open at night</span>
+            </li>
+            <li class="splide__slide intro_bottom_slide">
+              <span>Commentary tour</span>
+            </li>
+            <li class="splide__slide intro_bottom_slide">
+              <span>Historical experience</span>
+            </li>
+            <li class="splide__slide intro_bottom_slide">
+              <span>Street performance</span>
+            </li>
+            <li class="splide__slide intro_bottom_slide">
+              <span>Night view</span>
+            </li>
+            <li class="splide__slide intro_bottom_slide">
+              <span>Food truck</span>
+            </li>
+            <li class="splide__slide intro_bottom_slide">
+              <span>Art market</span>
+            </li>
+            <!-- copy -->
+            <li class="splide__slide intro_bottom_slide">
+              <span>Open at night</span>
+            </li>
+            <li class="splide__slide intro_bottom_slide">
+              <span>Commentary tour</span>
+            </li>
+            <li class="splide__slide intro_bottom_slide">
+              <span>Historical experience</span>
+            </li>
+            <li class="splide__slide intro_bottom_slide">
+              <span>Street performance</span>
+            </li>
+            <li class="splide__slide intro_bottom_slide">
+              <span>Night view</span>
+            </li>
+            <li class="splide__slide intro_bottom_slide">
+              <span>Food truck</span>
+            </li>
+            <li class="splide__slide intro_bottom_slide">
+              <span>Art market</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- section : gallery -->
+    <section class="gallery">
+      <div id="sliderGallery" class="splide gallery_splide">
+          <div class="splide__track gallery_wrap">
+            <ul class="splide__list gallery_list">
+              <li class="splide__slide gallery_slide">
+                <img src="image/s1_card01.jpg" alt="gallery_img">
+              </li>
+              <li class="splide__slide gallery_slide slide02">
+                  <img src="image/s1_card02.jpg" alt="gallery_img">
+              </li>
+              <li class="splide__slide gallery_slide bg">
+                <img src="image/s1_card03.jpg" alt="gallery_img">
+              </li>
+              <li class="splide__slide gallery_slide">
+                <img src="image/s1_card04.jpg" alt="gallery_img">
+              </li>
+              <li class="splide__slide gallery_slide">
+                <img src="image/s1_card05.jpg" alt="gallery_img">
+              </li>
+              <li class="splide__slide gallery_slide">
+                <img src="image/s1_card06.jpg" alt="gallery_img">
+              </li>
+              <li class="splide__slide gallery_slide">
+                <img src="image/s1_card07.jpg" alt="gallery_img">
+              </li>
+              <li class="splide__slide gallery_slide">
+                <img src="image/s1_card08.jpg" alt="gallery_img">
+              </li>
+              <li class="splide__slide gallery_slide">
+                <img src="image/s1_card09.jpg" alt="gallery_img">
+              </li>
+            </ul>
+          </div>
+      </div>
+    </section>
+    <!-- section : promotion -->
+    <section class="promotion">
+      <div class="promotion_title_wrap">
+        <div class="promotion_aside">
+          <a href="sub-page/pre-register.html" class="aside-wrap">
+            <div class="txt_line">
+              <img src="image/asideTxt.png" alt="">
+            </div>
+            <div class="txt">
+              <span>D DAY</span>
+              <b>99+</b>
+            </div>
+          </a>
+        </div>
+        <p class="gradient_text date_text">Start 2025.05.23</p>
+        <p class="title">정동야행</p>
+        <p class="title title_bold">봄밤의 문화유산 야행</p>
+        <p class="gradient_text start_text">START</p>
+        <div class="arrow_wrap">
+          <div class="arrow"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="promotion_content_wrap">
+        <div class="promotion_content_title">
+          <h6>정동의 빛, 미래를 수놓다</h6>
+        </div>
+        <div class="promotion_content">
+          <div class="promotion_video">
+            <iframe
+            src="https://www.youtube.com/embed/VmD_x5CuFcU?si=BE20y8XhvQ7bXP_5&amp;autoplay=true&amp;mute=1&amp;controls=0&amp;loop=1" title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen=""
+          ></iframe>
+          </div>
+          <div class="promotion_img">
+            <img src="image/main_poster.jpg" alt="프로모션 포스터">
+          </div>
+        </div>
+      </div>
+      <div class="promotion_support_wrap">
+        <div id="sliderSupport" class="splide support_splide">
+          <div class="splide__track support_wrap">
+            <ul class="splide__list support_list">
+              <li class="splide__slide support_slide">
+                <img src="image/support_02.png" alt="support_img">
+              </li>
+              <li class="splide__slide support_slide">
+                <img src="image/support_03.png" alt="support_img">
+              </li>
+              <li class="splide__slide support_slide">
+                <img src="image/support_04.png" alt="support_img">
+              </li>
+              <li class="splide__slide support_slide">
+                <img src="image/support_06.png" alt="support_img">
+              </li>
+              <li class="splide__slide support_slide">
+                <img src="image/support_07.png" alt="support_img">
+              </li>
+              <li class="splide__slide support_slide">
+                <img src="image/support_08.png" alt="support_img">
+              </li>
+              <li class="splide__slide support_slide">
+                <img src="image/support_09.png" alt="support_img">
+              </li>
+              <li class="splide__slide support_slide">
+                <img src="image/support_10.png" alt="support_img">
+              </li>
+              <li class="splide__slide support_slide">
+                <img src="image/support_11.png" alt="support_img">
+              </li>
+              <li class="splide__slide support_slide">
+                <img src="image/support_12.png" alt="support_img">
+              </li>
+              <li class="splide__slide support_slide">
+                <img src="image/support_13.png" alt="support_img">
+              </li>
+              <li class="splide__slide support_slide">
+                <img src="image/support_14.jpg" alt="support_img">
+              </li>
+              <li class="splide__slide support_slide">
+                <img src="image/support_15.png" alt="support_img">
+              </li>
+              <li class="splide__slide support_slide">
+                <img src="image/support_16.png" alt="support_img">
+              </li>
+              <li class="splide__slide support_slide">
+                <img src="image/support_17.png" alt="support_img">
+              </li>
+              <li class="splide__slide support_slide">
+                <img src="image/support_18.png" alt="support_img">
+              </li>
+              <li class="splide__slide support_slide">
+                <img src="image/support_19.png" alt="support_img">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- section : program -->
+    <section class="program">
+      <div class="program_intro_event" id="IntroEvent">
+        <canvas id="introCanvas"></canvas>
+        <div class="program_intro">
+          <p class="program_intro-top">7가지 테마의 이야기</p>
+          <p class="program_intro-bottom">정동의 빛, 미래를 수놓다</p>
+        </div>
+        <img src="image/circleText.png" alt="circleText" class="program_intro_img">
+      </div>
+      <div class="slider_container">
+        <div class="slider">
+          <div class="slide" data-index="0">
+            <a href="sub-page/program-main-yahwa.html" class="slide_content" target="_blank">
+              <img src="image/swiper_item01.jpg" alt="program_img">
+              <div class="text_wrap">
+                <p><span>달빛</span>에 빛나는 정동의 문화</p>
+                <p class="big_text">야화 (夜花)</p>
+              </div>
+              <div class="hover_text_wrap">
+                <span class="num">01</span>
+                <p class="big_text">
+                  밤에 꽃피우는<br>
+                  정동의 문화, <b>야화</b>
+                </p>
+                <p>
+                  정동의 <strong>문화시설</strong>이 밤에 개방됩니다.
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="slide" data-index="1">
+            <a href="sub-page/program-yaro.html" class="slide_content">
+              <img src="image/swiper_item02.jpg" alt="program_img">
+              <div class="text_wrap">
+                <p><span>설램</span>가득한 정동의 피크닉</p>
+                <p class="big_text">야로 (夜路)</p>
+              </div>
+              <div class="hover_text_wrap">
+                <span class="num">02</span>
+                <p class="big_text">
+                  정동의 역사를 품고<br>
+                  밤을 누비다, <b>야로</b>
+                </p>
+                <p>
+                  문화관광해설사와 함께하는 <strong>역사 해설 투어</strong>
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="slide" data-index="2">
+            <a href="sub-page/program-yasa.html" class="slide_content" target="_blank">
+              <img src="image/swiper_item03.jpg" alt="program_img">
+              <div class="text_wrap">
+                <p><span>추억</span>속의 역사 공방</p>
+                <p class="big_text">야사 (夜史)</p>
+              </div>
+              <div class="hover_text_wrap">
+                <span class="num">03</span>
+                <p class="big_text">
+                  중구의 역사를 다양한<br>
+                  체험으로 배우다, <b>야사</b>
+                </p>
+                <p>
+                  다양한 체험으로 배우는<strong>중구의 역사</strong>이야기
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="slide" data-index="3">
+            <a href="sub-page/program-yaseol.html" class="slide_content" target="_blank">
+              <img src="image/swiper_item04.jpg" alt="program_img">
+              <div class="text_wrap">
+                <p><span>동화</span>같은 예술공연</p>
+                <p class="big_text">야설 (夜設)</p>
+              </div>
+              <div class="hover_text_wrap">
+                <span class="num">04</span>
+                <p class="big_text">
+                  밤에 펼쳐지는 신나는<br>
+                  거리 이야기, <b>야설</b>
+                </p>
+                <p>
+                  돌담길 따라 만나는 <strong>거리공연</strong>
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="slide" data-index="4">
+            <a href="sub-page/program-yagyeong.html" class="slide_content" target="_blank">
+              <img src="image/swiper_item05.jpg" alt="program_img">
+              <div class="text_wrap">
+                <p><span>별</span>을 품은 정동의 밤</p>
+                <p class="big_text">야경 (夜景)</p>
+              </div>
+              <div class="hover_text_wrap">
+                <span class="num">05</span>
+                <p class="big_text">
+                  밤에 비춰보는<br>
+                  정동의 문화재, <b>야경</b>
+                </p>
+                <p>
+                  별을 품은 <strong>정동의 밤</strong>
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="slide" data-index="5">
+            <a href="sub-page/program-yasik.html" class="slide_content" target="_blank">
+              <img src="image/swiper_item06.jpg" alt="program_img">
+              <div class="text_wrap">
+                <p><span>달콤</span>한 정동의 맛</p>
+                <p class="big_text">야식 (夜食)</p>
+              </div>
+              <div class="hover_text_wrap">
+                <span class="num">06</span>
+                <p class="big_text">
+                  달밤에 즐기는<br>
+                  음식 이야기, <b>야식</b>
+                </p>
+                <p>
+                  음식의 역사, <strong>세계의 먹거리</strong>
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="slide" data-index="6">
+            <a href="sub-page/program-yasi.html" class="slide_content" target="_blank">
+              <img src="image/swiper_item07.jpg" alt="program_img">
+              <div class="text_wrap">
+                <p><span>반짝</span>거리는 아트마켓</p>
+                <p class="big_text">야시 (夜市)</p>
+              </div>
+              <div class="hover_text_wrap">
+                <span class="num">07</span>
+                <p class="big_text">
+                  야밤의 예술<br>
+                  다채로운 아트마켓, <b>야시</b>
+                </p>
+                <p>
+                  정동의 다채로운 <strong>예술장터</strong>
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="slider_controls">
+          <div class="btn_prev"></div>
+            <div class="pagination">
+                <span class="current_page">01</span>
+                <span class="total_page">07</span>
+            </div>
+            <div class="btn_next"></div>
+          </div>
+        </div>
+      </div>  
+    </section>
+    <!-- section : archive -->
+    <section class="archive">
+      <div class="archive_title">
+        <h1>정동야행의 <span>아카이빙</span>을 확인하세요</h1>
+      </div>
+      <div id="sliderArchive" class="splide splide_archive">
+        <div class="splide__track archive_wrap">
+          <ul class="splide__list archive_list">
+            <li class="splide__slide archive_slide">
+              <img src="image/archiving01.jpg" alt="archive_img">
+            </li>
+            <li class="splide__slide archive_slide">
+              <img src="image/archiving02.jpg" alt="archive_img">
+            </li>
+            <li class="splide__slide archive_slide">
+              <img src="image/archiving03.jpg" alt="archive_img">
+            </li>
+            <li class="splide__slide archive_slide">
+              <img src="image/archiving04.jpg" alt="archive_img">
+            </li>
+            <li class="splide__slide archive_slide">
+              <img src="image/archiving05.jpg" alt="archive_img">
+            </li>
+            <li class="splide__slide archive_slide">
+              <img src="image/archiving06.jpg" alt="archive_img">
+            </li>
+            <li class="splide__slide archive_slide">
+              <img src="image/archiving07.jpg" alt="archive_img">
+            </li>
+            <li class="splide__slide archive_slide">
+              <img src="image/archiving08.jpg" alt="archive_img">
+            </li>
+            <li class="splide__slide archive_slide">
+              <img src="image/archiving09.jpg" alt="archive_img">
+            </li>
+            <li class="splide__slide archive_slide">
+              <img src="image/archiving10.jpg" alt="archive_img">
+            </li>
+          </ul>
+        </div>
+      </div>
+      <a href="sub-page/about-_archive.html" class="news_btn"><span>more view</span></a>
+    </section>
+    <!-- section : news -->
+    <section class="news sections">
+      <div class="news_title_wrap">
+        <p class="title_tag"># 정동야행 행사소식</p>
+        <p class="title">정동야행의</p>
+        <p class="title_bold">특별한 행사소식을</p>
+        <p class="title">확인하세요</p>
+      </div>
+      <div class="news_content_wrap">
+        <div class="notice_content_wrap">
+          <h5 class="sub_title">공지사항</h5>
+          <ul class="news_content">
+            <li class="content_list">
+              <div class="list_left">
+                <p class="list_num">33</p>
+                <p class="list_date">2025.05.12</p>
+              </div>
+              <div class="list_right">
+                이화여고 내부투어 (2025 정동야행 사전신청 프로그램) 당첨자 명단 공개
+              </div>
+            </li>
+            <li class="content_list">
+              <div class="list_left">
+                <p class="list_num">32</p>
+                <p class="list_date">2025.05.21</p>
+              </div>
+              <div class="list_right">
+                2025 정동야행 현장이벤트(시설관람 인증) 안내
+              </div>
+            </li>
+            <li class="content_list">
+              <div class="list_left">
+                <p class="list_num">31</p>
+                <p class="list_date">2025.05.21</p>
+              </div>
+              <div class="list_right">
+                2025 정동야행 정동놀이(구민참여프로그램 및 그림공모전 전시) 안내
+              </div>
+            </li>
+            <li class="content_list">
+              <div class="list_left">
+                <p class="list_num">30</p>
+                <p class="list_date">2025.05.16</p>
+              </div>
+              <div class="list_right">
+                정동1928 아트센터(캔들라이트 공연 안내)
+              </div>
+            </li>
+            <li class="content_list">
+              <div class="list_left">
+                <p class="list_num">29</p>
+                <p class="list_date">2025.05.14</p>
+              </div>
+              <div class="list_right">
+                2025 정동야행 사전신청프로그램 황두진소장< 사대문안 인구 30만 프로젝트> 강연 당첨자 명단 공개
+              </div>
+            </li>
+          </ul>
+          <a href="sub-page/about-_news.html" class="news_btn"><span>more view</span></a>
+        </div>
+        <div class="sns_content_wrap">
+          <h5 class="sub_title">sns</h5>
+          <div id="sliderSns" class="splide sns_splide">
+            <div class="splide__track sns_wrap">
+              <ul class="splide__list sns_list">
+                <li class="splide__slide sns_slide">
+                  <img src="image/sns_01.jpg" alt="sns_img">
+                </li>
+                <li class="splide__slide sns_slide">
+                  <img src="image/sns_02.jpg" alt="sns_img">
+                </li>
+                <li class="splide__slide sns_slide">
+                  <img src="image/sns_03.jpg" alt="sns_img">
+                </li>
+                <li class="splide__slide sns_slide">
+                  <img src="image/sns_04.jpg" alt="sns_img">
+                </li>
+                <li class="splide__slide sns_slide">
+                  <img src="image/sns_05.jpg" alt="sns_img">
+                </li>
+                <li class="splide__slide sns_slide">
+                  <img src="image/sns_06.jpg" alt="sns_img">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- ########## footer ########## -->
+  <div class="footer-include"></div>
+
+  <!-- ########## script ########## -->
+  
+  <!-- ########## Library ########## -->
+  <!-- splide -->
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- ########## custom ########## -->
+  <!-- fetch -->
+  <script src="script/fetch.js"></script>
+  <!-- splide -->
+  <script src="script/splide.js"></script>
+  <!-- Canvas -->
+  <script src="script/canvas.js"></script>
+  <!-- main -->
+  <script src="script/intro_gsap.js"></script>
+  <script src="script/promotion.js"></script>
+  <script src="script/program_gsap.js"></script>
+  <script src="script/program.js"></script>
+  <script src="script/news.js"></script>
+
+
+</body>
+</html>

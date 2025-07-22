@@ -1,0 +1,18 @@
+/* base */
+@import 'common/_variables';
+@import 'common/_mixin';
+@import 'common/_font';
+@import 'common/_reset';
+
+/* main_page_section */
+@import 'main_page/_header';
+@import 'main_page/_aside';
+@import 'main_page/_intro';
+@import 'main_page/_gallery';
+@import 'main_page/_promotion';
+@import 'main_page/_program';
+@import 'main_page/_archive';
+@import 'main_page/_news';
+@import 'main_page/_footer';
+@import 'main_page/responsive_tablet';
+@import 'main_page/responsive_mobile';

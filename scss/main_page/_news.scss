@@ -1,0 +1,120 @@
+.news {
+  padding: 0 50px;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #fff;
+  .news_title_wrap {
+    position: sticky;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    p {
+      font-size: 55px;
+    }
+
+    .title_tag {
+      margin: 15px 0;
+      color: $pink;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .title_bold {
+      font-weight: bold;
+    }
+  }
+
+  .news_content_wrap {
+    width: 50%;
+    overflow-y: auto;
+
+    // 스크롤바 숨기기
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .notice_content_wrap {
+      padding-top: 50%;
+      @at-root .sub_title {
+        padding: 20px 10px;
+        font-weight: bold;
+      }
+      .news_content {
+        border-top: 3px solid $dark_black;
+        .content_list {
+          border-bottom: 1px solid $dark_black;
+          padding: 20px 5px;
+          display: flex; align-items: center; gap: 20px;
+          cursor: pointer;
+          .list_left {
+            display: flex; flex-direction: column; align-items: center;
+            .list_num {
+              font-size: 42px;
+              font-weight: bold;
+            }
+            .list_date {
+              font-size: 14px;
+              color: #595959;
+            }
+          }
+          .list_right {
+            font-size: 18px;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+      .news_btn{
+        @include NormalBtn;
+        margin: 70px 0 30px;
+        margin-left: auto;
+        &:hover{
+          @include NormalBtnHover;
+        }
+      }
+    }
+
+    .sns_content_wrap {
+      margin-bottom: 50px;
+      .sns_splide{
+        .sns_wrap{
+          .sns_list{
+            .sns_slide{
+              position: relative;
+              cursor: pointer;
+              &::before{
+                content: '';
+                transition: .2s;
+              }
+              &:hover{
+                &::before{
+                content: 'view';
+                width: 100%; height: 100%;
+                background: rgba($color: #a93177, $alpha: .6);
+                position: absolute;
+                top: 0; left: 0;
+                display: flex;
+                align-items: center; justify-content: center;
+                color: #fff;
+                font-size: $h4; font-weight: 500;
+                text-shadow: 1px 1px 5px $dark_black;
+              }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

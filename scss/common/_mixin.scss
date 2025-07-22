@@ -1,0 +1,46 @@
+@mixin NormalBtn{
+  border: 1px solid $dark_black;
+  display: block;
+  width: max-content;
+  padding: 15px 40px;
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+  span{
+    position: relative;
+    color: rgba($color: $dark_black, $alpha: .8);
+  }
+  &::before{
+    content: '';
+    width: 0%; height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    background: $dark_black;
+    transition: .3s;
+    z-index: 0;
+  }
+}
+
+@mixin NormalBtnHover{
+    span{
+    position: relative;
+    z-index: 3;
+    color: #fff;
+  }
+  
+  &::before{
+    width: 100%;
+    background: $dark_black;
+  }
+}
+
+@mixin gradientText($color01, $color02){
+  width: max-content;
+  display: inline-block;
+  background: linear-gradient(-90deg, $color01, $color02);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}

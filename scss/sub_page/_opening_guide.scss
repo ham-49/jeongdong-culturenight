@@ -1,0 +1,101 @@
+.opening_guide{
+  width: 90%; margin: auto;
+  .opening_guide-title{
+    width: max-content;
+    margin: 20px auto;
+    h6{
+      text-align: center;
+      font-weight: bold;
+      color: $light_purple;
+      padding: 10px 15px;
+      border-bottom: 3px solid $light_purple;
+    }
+  }
+  .opening_guide-content{
+    width: 90%;
+    margin: 60px auto 250px;
+    display: flex; justify-content: space-between; gap: 50px;
+    
+    .opening_guide-items{
+      flex: 1;
+      display: flex; flex-direction: column; align-items: center; 
+      .opening_guide-item{
+        width: 100%;
+        display: flex; gap: 20px;
+        margin-bottom: 50px;
+        .num{
+          display: block;
+          width: 30px; height: 30px;
+          display: flex; align-items: center; justify-content: center;
+          border: 2px solid #555;
+          border-radius: 50%;
+          font-size: 18px;
+          color: #555;
+          font-weight: bold;
+        }
+        .text-wrap{
+          .text-top{
+            display: flex; align-items: center;  gap: 15px; flex-wrap: wrap;
+            font-size: 16px;
+            margin-bottom: 20px;
+            h5{
+              span{
+                font-size: 14px;
+                color: #6b856b;
+              }
+            }
+            .ps{
+              width: 100%;
+              display: block;
+              color: red;
+            }
+            .badge{
+              display: inline-block;
+              color: #fff;
+              width: max-content;
+              padding: 5px 10px;
+              border-radius: 5px;
+            }
+            /* badge */
+            .green-badge{background: green;}
+            .yellow-badge{background: #FBB111;}
+            .purple-badge{background: purple;}
+            .blue-badge{background: #31ADBC;}
+            .gray-badge{background: gray;}
+            .pink-badge{background: $pink;}
+            .navy-badge{background: navy;}
+            .tag{
+              display: inline-block;
+              color: #fff;
+              width: max-content;
+              min-width: 80px; text-align: center;
+              padding: 5px 10px;
+              border-radius: 100px;
+            }
+            /* tag */
+            .pink-tag{background: #FF4393;}
+            .orange-tag{background: #FF7800;}
+            .purple-tag{background: #700099;}
+            .black-tag{background: #000000;}
+          }
+          .text-bottom{
+            color: #555;
+            p{
+              margin: 10px 0;
+            }
+            .list{
+              position: relative;
+              margin-left: 20px;
+              &::before{
+                content: '▶';
+                position: absolute;
+                right: 100%;
+                padding: 0 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

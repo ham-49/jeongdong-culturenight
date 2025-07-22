@@ -1,0 +1,126 @@
+.header{
+  display: none;
+  width: 100%;
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 10000;
+  background: #fff;
+  .header_inner{
+    width: 90%;
+    margin: auto;
+    display: flex; align-items: center;
+    .head_logo{
+      width: 96px; height: 80px;
+      img{
+        width: 100%; height: 100%;
+        object-position: center;
+      }
+    }
+    .nav{
+      max-width: 475px;
+      margin-left: auto;
+      transition: .3s;
+      overflow: hidden;
+      display: flex;
+      transition: .5s;
+      opacity: 1;
+      visibility: visible;
+      a{
+        margin: 0 8px;
+        padding: 5px;
+        white-space: nowrap;
+        &:hover{
+          text-shadow: 0 0 2px $dark-black;
+        }
+      }
+      &.hidden{
+        max-width: 0;
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+    .language{
+      position: relative;
+      display: inline-block;
+      font-family: "Geologica", sans-serif;
+      margin: 0px 20px;
+      .language_toggle, .language_option{
+        padding: 5px 8px;
+      }
+      .language_toggle{
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 2px 5px $dark-black;
+      }
+      .language_options{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: none;
+        flex-direction: column;
+        z-index: 10; transition: .3s;
+        .language_option{
+          background: #444;
+          border: none; border-radius: 10px;
+          padding: 5px 10px;
+          font-size: 14.5px;
+          cursor: pointer;
+          text-align: left;
+          color: #fff;
+          transform: translateY(5px);
+          transition: .3s;
+          &:hover{
+            background: #fff;
+            color: #333;
+          }
+        }
+        &.active{
+          display: flex;
+        }
+      }
+    }
+    .menu_btns{
+      font-family: "Geologica", sans-serif;
+      display: flex; align-items: center; gap: 20px;
+      cursor: pointer;
+      span{
+        font-weight: 700;
+      }
+      .menu_icon{
+        .icon_wrap{
+          width: 35px; height: 35px;
+          background: #000;
+          color: #fff;
+          display: flex; align-items: center; justify-content: center; 
+          margin: 0 20px; 
+          border-radius: 50%;
+        }
+        .dot_Wrap{
+          display: flex; gap: 5px; flex-wrap: wrap;
+          transition: .3s;
+          padding: 10px 8px;
+          display: none;
+          transform: scale(.3);
+          .dot{
+            width: 4px; height: 4px;
+            background: #fff;
+            border-radius: 50%;
+          }
+          &.show {
+              opacity: 1;
+              transform: scale(1);
+          }
+        }
+        .close_Wrap{
+          border: 1px solid blue;
+          transition: .3s;
+          text-align: center; line-height: 35px;
+          &.hidden{
+            transform: scale(.3);
+          }
+        }
+      }
+
+    }
+  }
+}
