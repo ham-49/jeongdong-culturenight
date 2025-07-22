@@ -3,69 +3,75 @@ fetch('/jeongdong-culturenight/fetch/header.html')
 .then(res => res.text())
 .then(data => {
   document.querySelector('.header-include').innerHTML = data;
-
-  let langToggle = document.querySelector('.language_toggle');
-  let langOptionsContainer = document.querySelector('.language_options');
-  let languages = ['KOR', 'ENG'];
-
-  // 언어 버튼 토글
+  /* header-script */
+  const langToggle = document.querySelector('.language_toggle');
+  const langOptionsContainer = document.querySelector('.language_options');
+  const languages = ['KOR', 'ENG'];
+  
+  /* language 랜더링 */
   function renderOptions(currentLang) {
     langOptionsContainer.innerHTML = '';
     languages.forEach(lang => {
       if (lang !== currentLang) {
-        let btn = document.createElement('button');
+        const btn = document.createElement('button');
         btn.classList.add('language_option');
         btn.textContent = lang;
         btn.dataset.lang = lang;
         btn.onclick = e => {
           e.preventDefault();
-          langToggle.textContent = lang;           // 선택한 언어로 토글 텍스트 변경
-          langOptionsContainer.classList.remove('active');  
-          renderOptions(lang);                      // 옵션 다시 렌더링
+          // 버튼 텍스트 교체
+          langToggle.textContent = lang;
+          // 옵션 닫기
+          langOptionsContainer.classList.remove('active');
+          // 옵션 목록 재렌더링 (현재 선택된 언어 제외)
+          renderOptions(lang);
         };
         langOptionsContainer.appendChild(btn);
       }
     });
   }
 
-  // 언어 토글 버튼 클릭 이벤트 (옵션 열고 닫기)
   langToggle.onclick = e => {
     e.preventDefault();
     langOptionsContainer.classList.toggle('active');
   };
-
+  // 초기 렌더링
   renderOptions(langToggle.textContent);
+  
+  /* 헤더 버튼  */
+  const dotWrap = document.querySelector('.dot_Wrap');
+  const closeWrap = document.querySelector('.close_Wrap');
+  const navWrap = document.querySelector('.nav');
+  const header = document.querySelector('.header');
+  const gallery = document.querySelector('.gallery');
 
-  let dotWrap = document.querySelector('.dot_Wrap'); 
-  let closeWrap = document.querySelector('.close_Wrap');
-  let navWrap = document.querySelector('.nav');       
-
-  // 모바일 여부 판단 함수 (화면 너비 768px 이하)
+  // 모바일 확인 함수
   function isMobile() {
     return window.innerWidth <= 768;
   }
 
-  // 네비게이션 초기/변경 상태 설정 함수
   function setNavState() {
+    if (!navWrap || !closeWrap || !dotWrap) return;
+
     if (isMobile()) {
-      navWrap.classList.add('hidden');     
-      closeWrap.classList.remove('show');  
+      navWrap.classList.add('hidden');
+      closeWrap.classList.remove('show');
       closeWrap.style.display = 'none';
-      dotWrap.classList.add('show');      
+      dotWrap.classList.add('show');
       dotWrap.style.display = 'flex';
     } else {
-      navWrap.classList.remove('hidden');  
-      closeWrap.classList.add('show');     
+      navWrap.classList.remove('hidden');
+      closeWrap.classList.add('show');
       closeWrap.style.display = 'block';
-      dotWrap.classList.remove('show');  
+      dotWrap.classList.remove('show');
       dotWrap.style.display = 'none';
     }
   }
 
-  setNavState(); 
+  setNavState();
 
-  // 닫기 아이콘 클릭 시 메뉴 닫고 열기 아이콘 보이기
   closeWrap.onclick = () => {
+    if (!closeWrap || !navWrap || !dotWrap) return;
     closeWrap.classList.add('hidden');
     closeWrap.classList.remove('show');
     navWrap.classList.add('hidden');
@@ -78,8 +84,8 @@ fetch('/jeongdong-culturenight/fetch/header.html')
     }, 300);
   };
 
-  // 열기 아이콘 클릭 시 메뉴 보이고 닫기 아이콘 보이기
   dotWrap.onclick = () => {
+    if (!dotWrap || !navWrap || !closeWrap) return;
     dotWrap.classList.add('hidden');
     dotWrap.classList.remove('show');
     navWrap.classList.remove('hidden');
@@ -92,17 +98,24 @@ fetch('/jeongdong-culturenight/fetch/header.html')
     }, 300);
   };
 
-  let header = document.querySelector('.header');   
-  let gallery = document.querySelector('.gallery'); 
-
-  // 스크롤 시 헤더 보이기 (모바일은 항상 보임)
+  // 스크롤 이벤트 최적화
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    if (isMobile()) {
-      header.style.display = 'block';
-      return;
-    }
-    let galleryTop = gallery.getBoundingClientRect().top;
-    header.style.display = (galleryTop <= 100) ? 'block' : 'none';
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(() => {
+      if (!header) {
+        ticking = false;
+        return;
+      }
+      if (isMobile()) {
+        header.style.display = 'block';
+      } else if (gallery) {
+        const galleryTop = gallery.getBoundingClientRect().top;
+        header.style.display = galleryTop <= 100 ? 'block' : 'none';
+      }
+      ticking = false;
+    });
   });
 });
 
@@ -119,47 +132,57 @@ fetch('/jeongdong-culturenight/fetch/aside.html')
 .then(data => {
   document.querySelector('.aside-include').innerHTML = data;
 
-  let aside = document.querySelector('aside');          
-  let program = document.querySelector('.program');     
-  let footer = document.querySelector('.footer');      
-  let asideImage = document.querySelector('aside img');
+  const aside = document.querySelector('aside');
+  const program = document.querySelector('.program');
+  const footer = document.querySelector('.footer');
+  const asideImage = document.querySelector('aside img');
 
-  // 스크롤 시 aside 노출 및 이미지 색상 반전 처리
+  // aside 스크롤 이벤트 최적화
+  let asideTicking = false;
   window.addEventListener('scroll', () => {
-    let programRect = program.getBoundingClientRect();
-    let footerRect = footer.getBoundingClientRect();
-    let triggerPoint = window.innerHeight * 0.9;
+    if (asideTicking) return;
+    asideTicking = true;
+    window.requestAnimationFrame(() => {
+      if (!aside || !program || !footer || !asideImage) {
+        asideTicking = false;
+        return;
+      }
 
-    if (footerRect.top <= window.innerHeight) {
-      aside.classList.remove('visible'); 
-    } else if (programRect.top <= triggerPoint) {
-      aside.classList.add('visible');    
-    } else {
-      aside.classList.remove('visible');
-    }
+      const programRect = program.getBoundingClientRect();
+      const footerRect = footer.getBoundingClientRect();
+      const triggerPoint = window.innerHeight * 0.9;
 
-    // aside 사이드 색상 변경
-    let programBottom = programRect.bottom;
-    let asideImageTop = asideImage.getBoundingClientRect().top;
+      if (footerRect.top <= window.innerHeight) {
+        aside.classList.remove('visible');
+      } else if (programRect.top <= triggerPoint) {
+        aside.classList.add('visible');
+      } else {
+        aside.classList.remove('visible');
+      }
 
-    if (asideImageTop > programBottom) {
-      asideImage.classList.remove('invert');
-    } else {
-      asideImage.classList.add('invert');
-    }
+      if (asideImage.getBoundingClientRect().top > programRect.bottom) {
+        asideImage.classList.remove('invert');
+      } else {
+        asideImage.classList.add('invert');
+      }
+
+      asideTicking = false;
+    });
   });
 });
 
 /* resize 대응 */
-// 화면 크기 변경 시 네비게이션 상태를 재설정
 window.addEventListener('resize', () => {
   const navWrap = document.querySelector('.nav');
   const closeWrap = document.querySelector('.close_Wrap');
   const dotWrap = document.querySelector('.dot_Wrap');
 
+  // 여기서도 isMobile 함수 재정의 하지 않고 사용
   function isMobile() {
     return window.innerWidth <= 768;
   }
+
+  if (!navWrap || !closeWrap || !dotWrap) return;
 
   if (isMobile()) {
     navWrap.classList.add('hidden');
