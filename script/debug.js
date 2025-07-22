@@ -28,3 +28,19 @@
     }
   }, 500);
 })();
+
+// 디버깅 정보 출력
+function debugScrollState() {
+  console.log('📍 window.scrollY:', window.scrollY);
+  console.log('📍 window.innerHeight:', window.innerHeight);
+  console.log('📍 IntroEvent offsetTop:', document.querySelector('#IntroEvent').offsetTop);
+  console.log('📍 slider_container display:', window.getComputedStyle(document.querySelector('.slider_container')).display);
+  console.log('📍 isMobile:', window.innerWidth <= 768);
+}
+
+// 이벤트 등록
+document.addEventListener('scroll', () => {
+  if (window.innerWidth <= 768) {
+    debugScrollState(); // 모바일에서만 출력
+  }
+}); 
