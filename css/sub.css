@@ -2361,6 +2361,9 @@ body {
 
 /* 태블릿 (세로형 기준) */
 @media screen and (max-width: 1024px) {
+  main {
+    border: 5px solid red;
+  }
   /* common */
   .sub-title-wrap {
     width: 100%;
@@ -3669,6 +3672,8 @@ body {
   .aside {
     width: 80px;
     height: 80px;
+    bottom: 10px;
+    right: 10px;
   }
   .aside .aside-btn .cir {
     width: 60px;
