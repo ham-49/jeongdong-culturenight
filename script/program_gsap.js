@@ -1,10 +1,12 @@
 gsap.registerPlugin(ScrollTrigger);
 
+const isMobile = window.innerWidth <= 768; // 모바일 판단 기준
+
 let tl = gsap.timeline({
   scrollTrigger: {
     trigger: '#IntroEvent',
     start: 'top top',
-    end: '+=150%',
+    end: isMobile ? '+=100%' : '+=150%', // 모바일은 짧게
     scrub: 1,
     pin: true,
   }
@@ -38,4 +40,4 @@ tl
   display: 'block',
   opacity: 1,
   pointerEvents: 'auto'
-}, 1);
+}, isMobile ? 0.7 : 1); // 슬라이더 모바일은 더 일찍 표시
