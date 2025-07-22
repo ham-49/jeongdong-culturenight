@@ -8,7 +8,7 @@ fetch('/jeongdong-culturenight/fetch/header.html')
   let langOptionsContainer = document.querySelector('.language_options');
   let languages = ['KOR', 'ENG'];
 
-  // 언어 옵션 버튼 생성
+  // 언어 버튼 토글
   function renderOptions(currentLang) {
     langOptionsContainer.innerHTML = '';
     languages.forEach(lang => {
