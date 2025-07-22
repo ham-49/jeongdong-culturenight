@@ -605,6 +605,7 @@ main {
 .promotion {
   padding: 83px 100px;
   background: #fff;
+  overflow: hidden;
 }
 .promotion .promotion_title_wrap {
   margin-top: 165px;
