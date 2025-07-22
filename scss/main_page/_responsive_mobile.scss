@@ -1,9 +1,8 @@
 /* 모바일 (가로+세로 대응) */
 @media screen and (max-width: 768px) {
   body{
-    overflow-x: hidden;
+    overflow-x: visible;
   }
-  
   /* header */
   .header{
     display: block;
@@ -44,24 +43,34 @@
     }
   }
   /* aside */
-  .aside{
-    width: 80px; height: 80px; 
-    bottom: 10px; right: 10px;
-    .aside-btn{
-      .cir{
-        width: 60px; height: 60px;
-        span{
+  .aside {
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    .aside-btn {
+      .cir {
+        width: 60px;
+        height: 60px;
+        span {
           font-size: 12px;
         }
-        b{
+        b {
           font-size: 18px;
           font-weight: bold;
         }
       }
     }
-    &.visible{
-      opacity: 1;
-    }
+      &.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(0);
+      }
   }
   /* main */
   /* intro */
