@@ -2361,9 +2361,6 @@ body {
 
 /* 태블릿 (세로형 기준) */
 @media screen and (max-width: 1024px) {
-  main {
-    border: 5px solid red;
-  }
   /* common */
   .sub-title-wrap {
     width: 100%;
