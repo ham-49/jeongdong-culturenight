@@ -1631,7 +1631,7 @@ main {
 /* 모바일 (가로+세로 대응) */
 @media screen and (max-width: 768px) {
   body {
-    overflow-x: visible;
+    overflow-x: hidden;
   }
   /* header */
   .header {
