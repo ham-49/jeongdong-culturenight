@@ -11,14 +11,15 @@ function initSplide() {
       perMove: 1,
       autoplay: false,
       interval: 1000,
-      speed: 4500,
+      speed: 2000, // 속도 낮춤
       easing: 'linear',
       pauseOnHover: false,
       arrows: false,
       pagination: false,
-      drag: false,
-      gap: '70px',
+      drag: true, // 모바일에서도 조작 가능하게
+      gap: '40px',
     });
+
     splideInstance.mount();
   }
 }
@@ -29,7 +30,6 @@ function playSlider() {
     splideInstance.Components.Autoplay.play();
   }
 }
-
 function stopSlider() {
   if (splideInstance && splideInstance.Components.Autoplay) {
     splideInstance.Components.Autoplay.pause();
@@ -39,12 +39,10 @@ function stopSlider() {
 document.addEventListener('DOMContentLoaded', () => {
   initSplide();
 
-  const isMobile = window.innerWidth <= 768; // 모바일 구간
+  const isMobile = window.innerWidth <= 768;
 
-  if (isMobile) {
-    playSlider(); // 모바일은 무조건 자동 재생
-  } else {
-    // 모바일 구간 제외하여 GSAP 작동하도록 조건 지정
+  if (!isMobile) {
+    // PC에서만 ScrollTrigger 및 자동재생 작동
     gsap.to(".slide02", {
       scrollTrigger: {
         trigger: ".gallery",
